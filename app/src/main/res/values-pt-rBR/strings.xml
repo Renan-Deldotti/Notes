@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="save">Salvar</string>
+    <string name="app_name">Notas</string>
+    <string name="delete_notes">Deletar notas</string>
+    <string name="importance_number">Importância</string>
+    <string name="description">Descrição</string>
+    <string name="no_description">Sem descrição</string>
+    <string name="title">Título</string>
+    <string name="all_notes">Todas as notas</string>
+    <string name="allDeleted">Todas foram deletadas</string>
+    <string name="noteDeleted">Nota deletada</string>
+    <string name="create_note">Criar nota</string>
+    <string name="update_note">Atualizar nota</string>
+    <string name="title_cnb_empty">O titulo não pode ser vazio</string>
+    <string name="change_view">Mudar visualização</string>
+</resources>
