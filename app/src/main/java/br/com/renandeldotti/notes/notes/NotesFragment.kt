@@ -1,14 +1,12 @@
 package br.com.renandeldotti.notes.notes
 
+import android.app.AlertDialog
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.*
@@ -35,7 +33,7 @@ class NotesFragment : Fragment(), NotesAdapter.ItemListener {
     private lateinit var noteList: List<Note>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_notes,container,false)
 
         binding.recyclerView.setHasFixedSize(true)
@@ -46,11 +44,12 @@ class NotesFragment : Fragment(), NotesAdapter.ItemListener {
         adapter = NotesAdapter(noteList,this)
         binding.recyclerView.adapter = adapter
 
-        viewModel.allNotes.observe(viewLifecycleOwner, Observer {
+        viewModel.allNotes.observe(viewLifecycleOwner) {
             it?.let {
                 noteList = it
-                binding.recyclerView.adapter = NotesAdapter(noteList,this) }
-        })
+                binding.recyclerView.adapter = NotesAdapter(noteList, this)
+            }
+        }
 
         binding.buttonAddNote.setOnClickListener{
             Navigation.findNavController(it).navigate(NotesFragmentDirections.actionNotesFragmentToCreateNoteFragment(CreateNoteFragment.CREATE_NEW_NOTE, null))
@@ -69,6 +68,15 @@ class NotesFragment : Fragment(), NotesAdapter.ItemListener {
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    private fun confirmDeleteNote(adapterPosition: Int) {
+        val alertBuilder = AlertDialog.Builder(context)
+        alertBuilder.setMessage("Delete note?")
+        alertBuilder.setNegativeButton("No", null)
+        alertBuilder.setPositiveButton("Yes") { _, _ -> deleteThisNote(adapterPosition)}
+        val alertDialog = alertBuilder.create()
+        alertDialog.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

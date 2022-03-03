@@ -1,10 +1,13 @@
 package br.com.renandeldotti.notes.createnote
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.*
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +25,7 @@ class CreateNoteFragment : Fragment() {
     companion object {
         const val CREATE_NEW_NOTE = 1
         const val UPDATE_NOTE = 2
+        const val TAG = "CreateNoteFragment"
     }
 
     private lateinit var createNoteBinding: FragmentCreateNoteBinding
@@ -63,7 +67,35 @@ class CreateNoteFragment : Fragment() {
                 SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date().time)
         }
 
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                checkForChanges(true)
+            }
+        })
+
         return createNoteBinding.root
+    }
+
+    private fun checkForChanges(fromBackButton: Boolean) {
+
+        Log.d(TAG, "fromBackButton: $fromBackButton")
+
+        var hasAnyChangedBeenDone = false
+
+        if (!TextUtils.isEmpty(createNoteBinding.createNoteTitle.text.toString())
+            || !TextUtils.isEmpty(createNoteBinding.createNoteDescription.text.toString())) {
+            hasAnyChangedBeenDone = true
+            val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+            builder.setMessage("Changes has been done, are you sure you want to leave?")
+            builder.setPositiveButton("Yes") { _, _ -> findNavController().navigateUp() }
+            builder.setNegativeButton("No", null)
+            val dialog = builder.create()
+            dialog.show()
+        } else if (fromBackButton) {
+            findNavController().navigateUp()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -72,11 +104,16 @@ class CreateNoteFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == R.id.save_note) {
+        Log.d(TAG, "onOptionsItemSelected: ${item.title} id:${item.itemId}")
+        if (item.itemId == R.id.save_note) {
             hideKeyboard(createNoteBinding.createNoteDate)
             addNewNote()
+            return false
+        } else if (item.itemId == 16908332) {
+            checkForChanges(true)
+            return false
         } else {
-            super.onOptionsItemSelected(item)
+            return super.onOptionsItemSelected(item)
         }
     }
 

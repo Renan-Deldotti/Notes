@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/UsuarioPC/Documents/GitHub/Notes/app/src/main/res/drawable/ic_view_list.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/UsuarioPC/Documents/GitHub/Notes/app/src/main/res/drawable/ic_view_staggered.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/UsuarioPC/Documents/GitHub/Notes/app/src/main/res/layout/activity_main.xml" value="0.28306159420289856" />
+        <entry key="..\:/Users/UsuarioPC/Documents/GitHub/Notes/app/src/main/res/layout/fragment_create_note.xml" value="0.1" />
+        <entry key="..\:/Users/UsuarioPC/Documents/GitHub/Notes/app/src/main/res/layout/fragment_notes.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
