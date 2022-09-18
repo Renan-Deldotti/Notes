@@ -5,6 +5,13 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF000000</color> <!-- primaryTextColor and secondaryTextColor -->
     <color name="white">#FFFFFFFF</color>
+
+    <color name="blue_grey_200">#8eacbb</color>
+    <color name="blue_grey_500">#607d8b</color> <!-- old colorPrimary for toolbar -->
+    <color name="blue_grey_700">#34515e</color> <!-- old colorPrimaryDark for system_status_bar 455A64 -->
+    <color name="indigo_A200">#8f9bff</color>
+    <color name="indigo_A500">#536dfe</color> <!-- old colorAccent_fab -->
+    <color name="indigo_A700">#0043ca</color>
 </resources>
