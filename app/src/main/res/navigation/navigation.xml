@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/notesFragment">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.renandeldotti.notes.notes.NotesFragment"
+        android:label="@string/all_notes"
+        tools:layout="@layout/fragment_notes">
+        <action
+            android:id="@+id/action_notesFragment_to_createOrUpdateNoteFragment"
+            app:destination="@id/createOrUpdateNoteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createOrUpdateNoteFragment"
+        android:name="com.renandeldotti.notes.createupdatenote.CreateOrUpdateNoteFragment"
+        android:label="@string/create_note"
+        tools:layout="@layout/fragment_create_or_update_note">
+        <argument
+            android:name="action_createOrUpdate"
+            app:argType="integer" />
+        <argument
+            android:name="note_to_update"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+</navigation>

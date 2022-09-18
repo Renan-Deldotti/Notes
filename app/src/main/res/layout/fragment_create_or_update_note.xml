@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".createupdatenote.CreateOrUpdateNoteFragment">
+
+    <TextView
+        android:id="@+id/createNote_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        app:drawableStartCompat="@drawable/ic_alarm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="01/01/2000 00:01" />
+
+    <EditText
+        android:id="@+id/createNote_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="@string/title"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:hint="@string/title"
+        android:inputType="textMultiLine|textCapSentences"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/createNote_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNote_date"
+        app:layout_constraintVertical_weight="1" />
+
+    <EditText
+        android:id="@+id/createNote_description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:autofillHints="@string/description"
+        android:background="@android:color/transparent"
+        android:gravity="start|top"
+        android:hint="@string/description"
+        android:inputType="textMultiLine|textCapSentences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNote_title"
+        app:layout_constraintVertical_weight="9" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

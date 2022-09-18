@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="save">Save</string>
+    <string name="delete_notes">Delete notes</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="importance_number">Importance</string>
+    <string name="description">Description</string>
+    <string name="no_description">No description</string>
+    <string name="title">Title</string>
+    <string name="all_notes">All notes</string>
+    <string name="allDeleted">All were deleted</string>
+    <string name="noteDeleted">Note deleted</string>
+    <string name="create_note">Create note</string>
+    <string name="update_note">Update note</string>
+    <string name="delete_this_note">Delete this note</string>
+    <string name="title_cnb_empty">Title cannot be empty</string>
+    <string name="change_view">Change view</string>
+    <string name="add_note_button_CD">Add new note button</string>
+    <string name="alert_dialog_danc_messages">Delete all notes?</string>
+    <string name="No">No</string>
+    <string name="Yes">Yes</string>
+    <string name="changes_done_dialog_confirmation">Changes has been done, are you sure you want to leave without saving them?</string>
+</resources>
