@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.renandeldotti.notes">
 
     <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:manageSpaceActivity=".HandleDataClearActivity"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Notes"
-        tools:targetApi="31">
+        android:targetSdkVersion="34"
+        android:theme="@style/Theme.Notes">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".HandleDataClearActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="notes.affinity.data.handledataclear" />
     </application>
 
 </manifest>
