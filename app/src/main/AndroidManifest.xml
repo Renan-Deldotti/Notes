@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:targetSdkVersion="34"
-        android:theme="@style/Theme.Notes">
+        android:theme="@style/Theme.Notes.SplashScreen">
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.Notes.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
