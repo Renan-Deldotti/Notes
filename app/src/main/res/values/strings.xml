@@ -20,4 +20,5 @@
     <string name="No">No</string>
     <string name="Yes">Yes</string>
     <string name="changes_done_dialog_confirmation">Changes has been done, are you sure you want to leave without saving them?</string>
+    <string name="dot_indicator_cd">List dot indicator</string>
 </resources>

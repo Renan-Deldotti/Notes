@@ -9,18 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:targetSdkVersion="34"
-        android:theme="@style/Theme.Notes.SplashScreen">
+        android:theme="@style/Theme.Notes">
+        <activity
+            android:name=".onboarding.OnboardingActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="notes.affinity.auth.activity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Notes.SplashScreen"
-            android:exported="true">
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity="notes.affinity.main.activity" />
+        <activity
+            android:name=".AuthVerificationActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:taskAffinity="notes.affinity.auth.activity"
+            android:theme="@style/Theme.Notes.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HandleDataClearActivity"
             android:excludeFromRecents="true"
